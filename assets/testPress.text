@@ -1,0 +1,83 @@
+//1. Write a program to print the reverse of the given string.
+
+var str = "codecode";
+var output = str.split('').reverse().join('');
+console.log(output);
+
+//2. Given a number, check whether it is a prime number or not.
+
+function isPrime(n) {
+    if (n < 2)
+        return `No, ${n} is not a prime number`;
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return `No, ${n} is not a prime number`;
+        }
+    }
+    return ` Yes, ${n} is a prime number`;
+}
+
+n = 4;
+console.log(isPrime(n));
+
+//3. Given an array of numbers, arrange them in a way that it forms the largest value.
+
+function largestNumber(arr) {
+
+    var strArr = arr.map(String);
+
+    strArr.sort(function (a, b) {
+        var order1 = a + b;
+        var order2 = b + a;
+        return order2.localeCompare(order1);
+    });
+
+    var largest = strArr.join("");
+
+    return parseInt(largest);
+}
+
+var input = [54, 546, 548, 60];
+var largestValue = largestNumber(input);
+console.log(largestValue);
+
+
+//4. Given a number N, print reverse of number N.
+
+function reverseNumber(number) {
+    var reversed = 0;
+    while (number > 0) {
+        reversed = (reversed * 10) + (number % 10);
+        number = Math.floor(number / 10);
+    }
+    return reversed;
+}
+
+var input = 988;
+var reversedNumber = reverseNumber(input);
+console.log(reversedNumber);
+
+
+
+//5. Given an array of numbers, find the maximum and minimum element in the array.
+
+function findMaxMin(arr) {
+    var max = arr[0];
+    var min = arr[0];
+
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    return max + " " + min;
+}
+
+var input = [54, 546, 548, 60];
+var result = findMaxMin(input);
+console.log(result);

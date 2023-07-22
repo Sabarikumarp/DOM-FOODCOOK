@@ -1,0 +1,23 @@
+function findStringDuplicates(arr) {
+    var countMap = {};
+
+
+    for (var i = 0; i < arr.length; i++) {
+        var currentString = arr[i];
+        if (countMap[currentString] === undefined) {
+            countMap[currentString] = 1;
+        } else {
+            countMap[currentString]++;
+        }
+    }
+
+
+    for (var string in countMap) {
+        if (countMap.hasOwnProperty(string) && countMap[string] % 2 === 1) {
+            console.log(string + ": " + countMap[string]);
+        }
+    }
+}
+
+var arr = ["a", "b", "c", "a", "b", "c", "a", "e"];
+findStringDuplicates(arr);
